@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Environment secrets — NEVER commit
+.env
+.env.local
+.env.*.local
+
+# SQLite database files
+backend/db/*.db
+backend/db/*.db-shm
+backend/db/*.db-wal
+
+# User-uploaded product images (lives only on the server)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Angular build cache
+frontend/.angular/
+
+# PM2 / process logs
+backend/*.log
+*.log
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+.vscode/

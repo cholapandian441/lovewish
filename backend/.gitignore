@@ -1,0 +1,7 @@
+node_modules/
+.env
+.env.local
+db/lovewish.db
+db/lovewish.db-shm
+db/lovewish.db-wal
+uploads/

@@ -1,0 +1,257 @@
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Design Tokens ───────────────────────────────────────────── */
+:root {
+  /* Brand palette — warm terracotta rose */
+  --color-primary:      #b5766a;
+  --color-primary-lt:   #d4a59a;
+  --color-primary-dk:   #8c5449;
+  --color-primary-tint: #f9f0ee;
+
+  /* Accent — sage green */
+  --color-accent:       #6b8f71;
+  --color-accent-tint:  #eef4ef;
+
+  /* Backgrounds */
+  --color-bg:           #faf8f5;   /* warm cream canvas */
+  --color-bg-alt:       #f3ede6;   /* tinted section */
+  --color-surface:      #ffffff;
+
+  /* Text */
+  --color-text:         #28201a;   /* deep warm charcoal */
+  --color-text-2:       #5c4f45;
+  --color-muted:        #9c8c80;
+
+  /* Borders */
+  --color-border:       #ece5dd;
+  --color-border-dk:    #d5cbc0;
+
+  /* Semantic */
+  --color-danger:       #b5372a;
+  --color-success:      #4a7c59;
+
+  /* Typography */
+  --font-display:  'Cormorant Garamond', Georgia, serif;
+  --font-heading:  'Playfair Display', Georgia, serif;
+  --font-body:     'Inter', system-ui, sans-serif;
+
+  /* Shape */
+  --radius-sm:   4px;
+  --radius:      10px;
+  --radius-lg:   18px;
+  --radius-pill: 100px;
+
+  /* Shadow — soft, warm-tinted */
+  --shadow-sm:  0 1px 4px rgba(40,32,26,0.06);
+  --shadow:     0 4px 20px rgba(40,32,26,0.08);
+  --shadow-lg:  0 12px 40px rgba(40,32,26,0.12);
+
+  /* Misc */
+  --max-width:  1200px;
+  --nav-height: 68px;
+  --transition: 0.2s ease;
+}
+
+/* ── Base ────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font-family: var(--font-body); }
+
+/* ── Layout ──────────────────────────────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+
+.page { padding: clamp(1.5rem, 4vw, 2.5rem) 0 clamp(3rem, 8vw, 5rem); }
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.75rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-primary-dk);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(140,84,73,0.28);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+}
+.btn-ghost:hover { color: var(--color-primary); }
+
+.btn-danger { background: var(--color-danger); color: #fff; }
+.btn-danger:hover { opacity: 0.88; }
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ── Forms ───────────────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-2);
+}
+
+input, textarea, select {
+  padding: 0.72rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.93rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+  appearance: none;
+}
+
+input::placeholder, textarea::placeholder { color: var(--color-muted); opacity: 0.7; }
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary-lt);
+  box-shadow: 0 0 0 3px var(--color-primary-tint);
+}
+
+textarea { resize: vertical; line-height: 1.6; }
+
+/* ── Cards ───────────────────────────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+/* ── Badges ──────────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 0.22rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.badge-gold  { background: #f9eee8; color: var(--color-primary-dk); }
+.badge-green { background: var(--color-accent-tint); color: var(--color-accent); }
+.badge-blue  { background: #eaf1fb; color: #3060a8; }
+.badge-gray  { background: #f0ece8; color: #6b5e54; }
+
+/* ── Section headings ────────────────────────────────────────── */
+.section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.display-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+/* ── Divider ─────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* ── Empty / Error states ────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: clamp(3rem, 8vw, 5rem) 1rem;
+  color: var(--color-muted);
+}
+.empty-state h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+.empty-state p { font-size: 0.93rem; margin-bottom: 1.25rem; }
+
+.error-msg {
+  color: var(--color-danger);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+/* ── Decorative rule ─────────────────────────────────────────── */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-border-dk);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+.ornament::before, .ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
