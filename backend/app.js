@@ -23,7 +23,8 @@ app.disable('x-powered-by');
 // --- Security headers (CSP, HSTS, nosniff, frameguard, etc.) ---
 app.use(
   helmet({
-    crossOriginResourcePolicy: { policy: 'cross-origin' }, // allow the SPA to load /uploads images
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+    contentSecurityPolicy: false,
   })
 );
 
