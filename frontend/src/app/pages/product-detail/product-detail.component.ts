@@ -128,8 +128,13 @@ import { SpinnerComponent } from '../../components/spinner/spinner.component';
       border-radius: var(--radius-lg);
       overflow: hidden;
       border: 1px solid var(--color-border);
+      box-shadow: var(--shadow);
     }
-    .detail-img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .detail-img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .detail-img-wrap:hover .detail-img { transform: scale(1.05); }
     .overlay-badge { position: absolute; top: 1rem; left: 1rem; }
 
     .detail-info {
@@ -141,9 +146,9 @@ import { SpinnerComponent } from '../../components/spinner/spinner.component';
     .category-tag {
       font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--color-primary);
-      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--color-gold-dk);
+      font-weight: 600;
     }
     .product-name {
       font-family: var(--font-display);
@@ -153,9 +158,9 @@ import { SpinnerComponent } from '../../components/spinner/spinner.component';
       color: var(--color-text);
     }
     .product-price {
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--color-text);
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--color-primary-dk);
       font-family: var(--font-heading);
     }
     .product-desc {

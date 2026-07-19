@@ -108,24 +108,31 @@ const CATEGORIES = ['All', 'Bouquets', 'Candles', 'Gift Hampers', 'Accessories',
 
     .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
     .filter-pill {
-      padding: 0.38rem 1rem;
+      padding: 0.46rem 1.1rem;
       border-radius: var(--radius-pill);
       border: 1px solid var(--color-border);
       background: var(--color-surface);
       cursor: pointer;
-      font-size: 0.72rem;
+      font-size: 0.71rem;
+      font-weight: 500;
       font-family: var(--font-body);
-      letter-spacing: 0.07em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      transition: all var(--transition);
+      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
       color: var(--color-text-2);
     }
-    .filter-pill.active,
     .filter-pill:hover {
-      background: var(--color-primary);
-      color: #fff;
-      border-color: var(--color-primary);
+      border-color: var(--color-gold);
+      color: var(--color-primary-dk);
+      transform: translateY(-1px);
     }
+    .filter-pill.active {
+      background: var(--gradient-primary);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 18px -8px rgba(126,69,58,0.5);
+    }
+    .filter-pill.active:hover { color: #fff; transform: translateY(-1px); }
 
     .product-grid {
       display: grid;

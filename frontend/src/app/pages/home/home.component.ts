@@ -126,20 +126,21 @@ const CATEGORIES = [
     .hero__eyebrow {
       font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--color-primary);
-      font-weight: 500;
-      margin-bottom: 1rem;
+      letter-spacing: 0.26em;
+      color: var(--color-gold-dk);
+      font-weight: 600;
+      margin-bottom: 1.1rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
     }
     .hero__eyebrow::before {
       content: '';
       display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--color-primary-lt);
+      width: 34px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--gradient-gold);
     }
     .hero__title {
       font-family: var(--font-display);
@@ -162,9 +163,26 @@ const CATEGORIES = [
       font-weight: 300;
     }
     .hero__cta { display: flex; gap: 0.85rem; flex-wrap: wrap; }
-    .hero__visual { flex-shrink: 0; }
+    .hero__visual {
+      position: relative;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+    }
+    /* Soft radial gold glow behind the medallion */
+    .hero__visual::before {
+      content: '';
+      position: absolute;
+      width: 118%;
+      height: 118%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 45%, rgba(226,205,147,0.45) 0%, rgba(207,158,145,0.18) 45%, transparent 70%);
+      filter: blur(6px);
+      z-index: 0;
+    }
     .hero__medallion {
       position: relative;
+      z-index: 1;
       width: 360px;
       height: 360px;
       border-radius: 50%;
@@ -207,10 +225,22 @@ const CATEGORIES = [
       margin-bottom: 0.4rem;
     }
     .section-title {
+      position: relative;
       font-family: var(--font-heading);
-      font-size: clamp(1.4rem, 3vw, 1.85rem);
-      font-weight: 400;
+      font-size: clamp(1.55rem, 3vw, 2.1rem);
+      font-weight: 500;
       color: var(--color-text);
+      padding-top: 1rem;
+    }
+    /* Gold hairline above each section title */
+    .section-title::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 46px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--gradient-gold);
     }
     .see-all {
       font-size: 0.75rem;
@@ -238,30 +268,47 @@ const CATEGORIES = [
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.65rem;
-      padding: 1.5rem 0.5rem 1.25rem;
+      gap: 0.85rem;
+      padding: 1.75rem 0.5rem 1.4rem;
       text-align: center;
       cursor: pointer;
       border-radius: var(--radius-lg);
       border: 1px solid var(--color-border);
       background: var(--color-surface);
-      transition: all var(--transition);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
       text-decoration: none;
     }
     .cat-card:hover {
-      border-color: var(--color-primary-lt);
-      background: var(--color-primary-tint);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
+      border-color: var(--color-gold-lt);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
     }
-    .cat-card__icon { font-size: 1.8rem; line-height: 1; }
+    .cat-card__icon {
+      font-size: 1.65rem;
+      line-height: 1;
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 40%, var(--color-gold-tint), var(--color-primary-tint));
+      border: 1px solid var(--color-border);
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    .cat-card:hover .cat-card__icon {
+      border-color: var(--color-gold);
+      box-shadow: var(--shadow-gold);
+      transform: scale(1.06);
+    }
     .cat-card__label {
       font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--color-text-2);
+      transition: color var(--transition);
     }
+    .cat-card:hover .cat-card__label { color: var(--color-primary-dk); }
 
     /* ── Product Grid ───────────────────── */
     .product-grid {
@@ -290,16 +337,24 @@ const CATEGORIES = [
     }
     .step-card__num {
       font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 400;
-      color: var(--color-primary-lt);
+      font-size: 3.2rem;
+      font-weight: 600;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
       line-height: 1;
       margin-bottom: 1rem;
     }
+    .step-card {
+      transition: background var(--transition);
+    }
+    .step-card:hover { background: var(--color-primary-tint); }
     .step-card h3 {
       font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 400;
+      font-size: 1.05rem;
+      font-weight: 500;
       margin-bottom: 0.5rem;
     }
     .step-card p { color: var(--color-muted); font-size: 0.875rem; line-height: 1.65; }

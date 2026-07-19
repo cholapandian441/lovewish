@@ -122,10 +122,19 @@ import { ToastComponent } from './components/toast/toast.component';
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(250, 248, 245, 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(250, 247, 243, 0.82);
+      backdrop-filter: blur(16px) saturate(1.4);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4);
       border-bottom: 1px solid var(--color-border);
+    }
+    /* Gold hairline accent beneath the nav */
+    .navbar::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold-lt) 20%, var(--color-gold) 50%, var(--color-gold-lt) 80%, transparent);
+      opacity: 0.55;
     }
 
     .navbar__inner {
@@ -144,16 +153,18 @@ import { ToastComponent } from './components/toast/toast.component';
     }
     .brand-name {
       font-family: var(--font-display);
-      font-size: 1.55rem;
-      font-weight: 500;
+      font-size: 1.7rem;
+      font-weight: 600;
       color: var(--color-primary-dk);
-      letter-spacing: 0.01em;
+      letter-spacing: 0.015em;
     }
     .brand-tagline {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
+      font-size: 0.56rem;
+      letter-spacing: 0.34em;
       text-transform: uppercase;
-      color: var(--color-muted);
+      color: var(--color-gold-dk);
+      font-weight: 500;
+      padding-left: 0.1em;
     }
 
     /* Desktop nav links */
@@ -175,7 +186,7 @@ import { ToastComponent } from './components/toast/toast.component';
       position: absolute;
       bottom: -2px; left: 0;
       width: 0; height: 1.5px;
-      background: var(--color-primary);
+      background: var(--gradient-gold);
       transition: width var(--transition);
     }
     .navbar__links a:hover,
@@ -277,81 +288,101 @@ import { ToastComponent } from './components/toast/toast.component';
     @keyframes fadein  { from { opacity: 0; } }
     @keyframes slidedown { from { opacity: 0; transform: translateY(-8px); } }
 
-    /* ── Footer ───────────────────────────────────── */
+    /* ── Footer — dark espresso luxe ──────────────── */
     .footer {
-      background: var(--color-bg-alt);
-      border-top: 1px solid var(--color-border);
+      position: relative;
+      background: var(--color-ink);
+      color: #e8ded2;
       margin-top: auto;
+    }
+    /* Gold top hairline */
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--color-gold) 30%, var(--color-gold-lt) 50%, var(--color-gold) 70%, transparent);
+      opacity: 0.7;
     }
     .footer__inner {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      padding-top: 2.5rem;
-      padding-bottom: 1.5rem;
-      gap: 2rem;
+      padding-top: 3.5rem;
+      padding-bottom: 2rem;
+      gap: 2.5rem;
       flex-wrap: wrap;
     }
     .footer__brand .brand-name {
       font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: var(--color-primary-dk);
+      font-size: 1.7rem;
+      font-weight: 600;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
       display: block;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.55rem;
     }
     .footer__brand p {
-      font-size: 0.83rem;
-      color: var(--color-muted);
+      font-size: 0.85rem;
+      color: #b3a698;
+      max-width: 240px;
+      line-height: 1.7;
     }
     .footer__links {
       display: flex;
       gap: 1.75rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.07em;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--color-text-2);
+      color: #cbbfb1;
     }
-    .footer__links a { transition: color var(--transition); }
-    .footer__links a:hover { color: var(--color-primary); }
+    .footer__links a {
+      position: relative;
+      transition: color var(--transition);
+    }
+    .footer__links a:hover { color: var(--color-gold-lt); }
 
     /* Footer contact */
     .footer__contact {
       display: flex;
       flex-direction: column;
-      gap: 0.7rem;
+      gap: 0.85rem;
       align-items: flex-start;
     }
     .footer__contact-title {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--color-text-2);
+      color: var(--color-gold-lt);
       font-weight: 600;
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.25rem;
     }
     .footer__contact-item {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      font-size: 0.83rem;
-      color: var(--color-muted);
+      gap: 0.65rem;
+      font-size: 0.85rem;
+      color: #c3b6a8;
       transition: color var(--transition);
     }
     .footer__contact-item svg {
       flex-shrink: 0;
-      color: var(--color-text-2);
-      transition: color var(--transition);
+      color: var(--color-gold);
+      transition: color var(--transition), transform var(--transition);
     }
-    .footer__contact-item:hover,
-    .footer__contact-item:hover svg { color: var(--color-primary); }
+    .footer__contact-item:hover { color: #fff; }
+    .footer__contact-item:hover svg { color: var(--color-gold-lt); transform: scale(1.1); }
 
     .footer__bottom {
-      padding-bottom: 1.5rem;
-      font-size: 0.75rem;
-      color: var(--color-muted);
-      border-top: 1px solid var(--color-border);
-      padding-top: 1rem;
+      padding-bottom: 1.75rem;
+      font-size: 0.74rem;
+      letter-spacing: 0.04em;
+      color: #8c7f71;
+      border-top: 1px solid var(--color-ink-line);
+      padding-top: 1.25rem;
     }
 
     /* ── Responsive ───────────────────────────────── */

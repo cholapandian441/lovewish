@@ -56,9 +56,9 @@ import { CartService } from '../../services/cart.service';
       transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
     }
     .product-card:hover {
-      border-color: var(--color-primary-lt);
-      box-shadow: var(--shadow);
-      transform: translateY(-3px);
+      border-color: var(--color-gold-lt);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
     }
 
     /* Image */
@@ -87,16 +87,16 @@ import { CartService } from '../../services/cart.service';
     /* Flags */
     .product-card__flag {
       position: absolute;
-      top: 0.75rem; left: 0.75rem;
-      background: var(--color-surface);
-      color: var(--color-primary-dk);
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      top: 0.8rem; left: 0.8rem;
+      background: var(--gradient-gold);
+      color: var(--color-ink);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
+      padding: 0.3rem 0.7rem;
       border-radius: var(--radius-pill);
-      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-gold);
     }
     .product-card__in-cart {
       position: absolute;
@@ -120,10 +120,11 @@ import { CartService } from '../../services/cart.service';
     }
 
     .product-card__cat {
-      font-size: 0.67rem;
+      font-size: 0.64rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-muted);
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      color: var(--color-gold-dk);
     }
 
     .product-card__name {
@@ -149,9 +150,10 @@ import { CartService } from '../../services/cart.service';
     }
 
     .product-card__price {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--color-text);
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-primary-dk);
     }
 
     /* Add button */
