@@ -82,7 +82,7 @@ import { ToastComponent } from './components/toast/toast.component';
         <div class="footer__contact">
           <h4 class="footer__contact-title">Get in Touch</h4>
           <a
-            href="https://www.instagram.com/lovewish_lovewish?igsh=eDF4Ymw5NHNucTNy"
+            href="https://www.instagram.com/lovewishgifts_"
             target="_blank"
             rel="noopener noreferrer"
             class="footer__contact-item"
@@ -92,7 +92,7 @@ import { ToastComponent } from './components/toast/toast.component';
               <circle cx="12" cy="12" r="4"/>
               <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
             </svg>
-            <span>&#64;lovewish_lovewish</span>
+            <span>&#64;lovewishgifts_</span>
           </a>
           <a href="tel:9535423219" class="footer__contact-item">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true">

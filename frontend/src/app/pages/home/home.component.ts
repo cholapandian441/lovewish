@@ -24,7 +24,7 @@ const CATEGORIES = [
     <!-- ── Hero ───────────────────────────────────────────── -->
     <section class="hero">
       <div class="hero__content">
-        <p class="hero__eyebrow">Handmade with love</p>
+        <p class="hero__eyebrow">A touch of love and a whisper of wish</p>
         <h1 class="hero__title">Gifts that <em>feel</em> like a hug</h1>
         <p class="hero__sub">Thoughtfully crafted, beautifully wrapped — for every special someone.</p>
         <div class="hero__cta">
@@ -34,7 +34,7 @@ const CATEGORIES = [
       </div>
       <div class="hero__visual">
         <div class="hero__medallion">
-          <img src="assets/images/lovewishlogo.jpg" alt="Love & Wish — a touch of love and a whisper of wish" class="hero__logo" />
+          <img src="assets/images/lovewishsticker.png" alt="Love & Wish — a touch of love and a whisper of wish" class="hero__logo" />
         </div>
       </div>
     </section>
@@ -168,23 +168,9 @@ const CATEGORIES = [
       width: 360px;
       height: 360px;
       border-radius: 50%;
-      padding: 18px;
+      overflow: hidden;
       display: grid;
       place-items: center;
-      background: radial-gradient(circle at 32% 26%, #ffffff, var(--color-primary-tint) 52%, #efe3df 100%);
-      box-shadow:
-        0 30px 60px -24px rgba(140,84,73,0.50),
-        inset 0 1px 1px rgba(255,255,255,0.7);
-      animation: float 5s ease-in-out infinite;
-    }
-    .hero__medallion::after {
-      content: '';
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      border: 1px solid rgba(181,118,106,0.18);
-      pointer-events: none;
     }
     .hero__logo {
       width: 100%;
@@ -192,20 +178,13 @@ const CATEGORIES = [
       border-radius: 50%;
       object-fit: cover;
       display: block;
-      border: 1px solid rgba(181,118,106,0.25);
-      box-shadow: 0 12px 32px -12px rgba(0,0,0,0.55);
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(-1deg); }
-      50%       { transform: translateY(-14px) rotate(1deg); }
     }
     @media (max-width: 760px) {
       .hero { flex-direction: column-reverse; text-align: center; gap: 2rem; min-height: auto; }
       .hero__eyebrow { justify-content: center; }
       .hero__cta { justify-content: center; }
       .hero__sub { margin-inline: auto; }
-      .hero__medallion { width: 230px; height: 230px; padding: 12px; margin-inline: auto; }
-      .hero__medallion::after { width: 230px; height: 230px; }
+      .hero__medallion { width: 230px; height: 230px; margin-inline: auto; }
     }
 
     /* ── Sections ───────────────────────── */
