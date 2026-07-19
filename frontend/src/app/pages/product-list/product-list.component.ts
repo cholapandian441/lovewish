@@ -7,7 +7,7 @@ import { Product } from '../../models/models';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { SpinnerComponent } from '../../components/spinner/spinner.component';
 
-const CATEGORIES = ['All', 'Bouquets', 'Candles', 'Gift Hampers', 'Accessories', 'Ephemera - Keepsake Letters'];
+const CATEGORIES = ['All', 'Bouquets', 'Candles', 'Gift Hampers', 'Accessories', 'Ephemera - Keepsake Letters', 'Art & Craft', 'Home Decor'];
 
 @Component({
   selector: 'app-product-list',

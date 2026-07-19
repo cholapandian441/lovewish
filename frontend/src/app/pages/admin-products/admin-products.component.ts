@@ -4,7 +4,7 @@ import { ApiService } from '../../services/api.service';
 import { Product } from '../../models/models';
 import { CommonModule, SlicePipe } from '@angular/common';
 
-const CATEGORIES = ['Bouquets', 'Candles', 'Gift Hampers', 'Accessories', 'Ephemera - Keepsake Letters'];
+const CATEGORIES = ['Bouquets', 'Candles', 'Gift Hampers', 'Accessories', 'Ephemera - Keepsake Letters', 'Art & Craft', 'Home Decor'];
 
 @Component({
   selector: 'app-admin-products',

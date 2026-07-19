@@ -12,6 +12,8 @@ const CATEGORIES = [
   { label: 'Gift Hampers', icon: '🎁', route: '/products?category=Gift Hampers' },
   { label: 'Accessories',  icon: '💎', route: '/products?category=Accessories'  },
   { label: 'Ephemera - Keepsake Letters', icon: '✉️', route: '/products?category=Ephemera - Keepsake Letters' },
+  { label: 'Art & Craft',  icon: '🎨', route: '/products?category=Art & Craft' },
+  { label: 'Home Decor',   icon: '🏠', route: '/products?category=Home Decor'  },
 ];
 
 @Component({
